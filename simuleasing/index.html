@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulation d'Achat ou de Location</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <button id="toggle-theme" class="theme-toggle">🌙 Mode Sombre</button>
+    <img src="logo.png" alt="Logo" class="logo">
+    <h1>Simulation d’Achat ou de Location</h1>
+    <form id="simulation-form">
+      <label for="price">Prix du véhicule (€):</label>
+      <input type="number" id="price" placeholder="Ex: 25000" required>
+
+      <label for="downPayment">Apport initial (€):</label>
+      <input type="number" id="downPayment" placeholder="Ex: 5000" required>
+
+      <label for="duration">Durée (mois):</label>
+      <input type="number" id="duration" placeholder="Ex: 60" required>
+
+      <label for="rate">Taux d'intérêt annuel (%):</label>
+      <input type="number" id="rate" placeholder="Ex: 3.5" required>
+
+      <button type="button" id="calculate">Calculer</button>
+    </form>
+
+    <div id="loading" class="hidden">Calcul en cours...</div>
+
+    <div id="results" class="hidden">
+      <h2>Résultats</h2>
+      <p><strong>Mensualité (Achat):</strong> <span id="loan-payment">0</span> €/mois</p>
+      <p><strong>Coût total (Achat):</strong> <span id="total-loan-cost">0</span> €</p>
+      <p><strong>Coût total (Location estimée):</strong> <span id="lease-cost">0</span> €</p>
+      <button id="download-pdf">Télécharger le devis en PDF</button>
+
+      <h3>Comparaison</h3>
+      <canvas id="comparison-chart" width="400" height="200"></canvas>
+
+      <button id="save-scenario">Sauvegarder ce scénario</button>
+      <ul id="saved-scenarios"></ul>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
